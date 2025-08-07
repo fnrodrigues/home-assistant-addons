@@ -2,13 +2,12 @@
   "name": "n8n with FFmpeg",
   "version": "1.0.1",
   "slug": "n8n_ffmpeg",
-  "description": "n8n automation tool with FFmpeg support for Home Assistant",
+  "description": "n8n automation tool with FFmpeg support",
   "url": "https://n8n.io",
   "arch": ["armv7", "aarch64", "amd64"],
   "startup": "services",
   "boot": "auto",
   "init": false,
-  "image": "ghcr.io/fnrodrigues/n8n-ffmpeg-{arch}",
   "ports": {
     "5678/tcp": 5678
   },
@@ -16,21 +15,11 @@
   "ingress_port": 5678,
   "panel_icon": "mdi:chart-line",
   "panel_title": "n8n",
-  "privileged": ["NET_ADMIN"],
   "environment": {
     "N8N_HOST": "0.0.0.0",
     "N8N_PORT": "5678",
-    "N8N_PROTOCOL": "http",
     "N8N_BASIC_AUTH_ACTIVE": "true",
     "N8N_BASIC_AUTH_USER": "admin",
     "N8N_BASIC_AUTH_PASSWORD": "admin"
-  },
-  "options": {
-    "basic_auth_user": "admin",
-    "basic_auth_password": "admin"
-  },
-  "schema": {
-    "basic_auth_user": "str",
-    "basic_auth_password": "str"
   }
 }
