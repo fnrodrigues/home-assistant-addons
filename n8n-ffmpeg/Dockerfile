@@ -1,8 +1,11 @@
 ARG BUILD_FROM
 FROM ${BUILD_FROM}
 
-ENV LANG C.UTF-8
+# Variáveis de ambiente
+ENV LANG=C.UTF-8
+ENV N8N_USER_FOLDER="/data"
 
+# Instalar dependências
 RUN apk add --no-cache \
     ffmpeg \
     nodejs \
@@ -11,11 +14,24 @@ RUN apk add --no-cache \
     make \
     g++ \
     curl \
-    git
+    git \
+    bash
 
+# Instalar n8n globalmente
 RUN npm install n8n -g
 
+# Criar diretório de dados
+RUN mkdir -p /data
+
+# Copiar script de inicialização
 COPY run.sh /run.sh
 RUN chmod a+x /run.sh
 
-CMD [ "/run.sh" ]
+# Expor porta
+EXPOSE 5678
+
+# Definir volume para dados
+VOLUME ["/data"]
+
+# Comando de inicialização
+CMD ["/run.sh"]
