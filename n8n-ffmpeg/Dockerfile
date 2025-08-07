@@ -1,4 +1,21 @@
 ARG BUILD_FROM
-FROM n8nio/n8n
+FROM ${BUILD_FROM}
 
-RUN apt-get update && apt-get install -y ffmpeg
+ENV LANG C.UTF-8
+
+RUN apk add --no-cache \
+    ffmpeg \
+    nodejs \
+    npm \
+    python3 \
+    make \
+    g++ \
+    curl \
+    git
+
+RUN npm install n8n -g
+
+COPY run.sh /run.sh
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]

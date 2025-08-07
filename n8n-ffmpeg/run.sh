@@ -1,3 +1,2 @@
-#!/usr/bin/with-contenv bash
-echo "Starting n8n with FFmpeg..."
+#!/usr/bin/env bash
 n8n
