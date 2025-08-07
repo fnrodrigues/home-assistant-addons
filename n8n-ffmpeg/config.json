@@ -2,23 +2,22 @@
   "name": "n8n with FFmpeg",
   "version": "1.0.0",
   "slug": "n8n_ffmpeg",
-  "description": "n8n with FFmpeg support",
-  "url": "https://n8n.io",
-  "arch": ["armv7", "arm64", "aarch64", "amd64"],
+  "description": "n8n automation with FFmpeg included",
   "startup": "services",
   "boot": "auto",
+  "arch": ["aarch64", "armv7", "amd64"],
+  "options": {},
+  "schema": {},
   "ports": {
     "5678/tcp": 5678
   },
+  "webui": "http://[HOST]:[PORT:5678]",
   "ingress": true,
   "ingress_port": 5678,
-  "panel_icon": "mdi:chart-line",
-  "panel_title": "n8n",
+  "ingress_stream": false,
+  "panel_icon": "mdi:flowchart",
   "init": false,
-  "privileged": ["NET_ADMIN"],
-  "environment": {
-    "N8N_BASIC_AUTH_ACTIVE": "true",
-    "N8N_BASIC_AUTH_USER": "admin",
-    "N8N_BASIC_AUTH_PASSWORD": "admin"
-  }
+  "host_network": false,
+  "privileged": ["SYS_ADMIN"],
+  "image": "ghcr.io/fnrodrigues/n8n-ffmpeg-addon-{arch}"
 }
