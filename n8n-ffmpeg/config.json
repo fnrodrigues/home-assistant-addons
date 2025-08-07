@@ -1,0 +1,24 @@
+{
+  "name": "n8n with FFmpeg",
+  "version": "1.0.0",
+  "slug": "n8n_ffmpeg",
+  "description": "n8n with FFmpeg support",
+  "url": "https://n8n.io",
+  "arch": ["armv7", "arm64", "aarch64", "amd64"],
+  "startup": "services",
+  "boot": "auto",
+  "ports": {
+    "5678/tcp": 5678
+  },
+  "ingress": true,
+  "ingress_port": 5678,
+  "panel_icon": "mdi:chart-line",
+  "panel_title": "n8n",
+  "init": false,
+  "privileged": ["NET_ADMIN"],
+  "environment": {
+    "N8N_BASIC_AUTH_ACTIVE": "true",
+    "N8N_BASIC_AUTH_USER": "admin",
+    "N8N_BASIC_AUTH_PASSWORD": "admin"
+  }
+}
