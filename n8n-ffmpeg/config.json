@@ -1,13 +1,10 @@
 {
   "name": "n8n with FFmpeg",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "slug": "n8n_ffmpeg",
   "description": "n8n automation tool with FFmpeg support",
   "url": "https://n8n.io",
   "arch": ["armv7", "aarch64", "amd64"],
-  "build_from": {
-    "aarch64": "ghcr.io/home-assistant/aarch64-base:3.19"
-    },
   "startup": "services",
   "boot": "auto",
   "init": false,
@@ -18,11 +15,18 @@
   "ingress_port": 5678,
   "panel_icon": "mdi:chart-line",
   "panel_title": "n8n",
-  "environment": {
-    "N8N_HOST": "0.0.0.0",
-    "N8N_PORT": "5678",
-    "N8N_BASIC_AUTH_ACTIVE": "true",
+  "options": {
+    "N8N_BASIC_AUTH_ACTIVE": true,
     "N8N_BASIC_AUTH_USER": "admin",
     "N8N_BASIC_AUTH_PASSWORD": "admin"
+  },
+  "schema": {
+    "N8N_BASIC_AUTH_ACTIVE": "bool",
+    "N8N_BASIC_AUTH_USER": "str",
+    "N8N_BASIC_AUTH_PASSWORD": "str"
+  },
+  "environment": {
+    "N8N_HOST": "0.0.0.0",
+    "N8N_PORT": "5678"
   }
 }
