@@ -1,6 +1,5 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=ghcr.io/home-assistant/aarch64-base:3.19
 FROM ${BUILD_FROM}
-
 # Variáveis de ambiente
 ENV LANG=C.UTF-8
 ENV N8N_USER_FOLDER="/data"
