@@ -5,6 +5,9 @@
   "description": "n8n automation tool with FFmpeg support",
   "url": "https://n8n.io",
   "arch": ["armv7", "aarch64", "amd64"],
+  "build_from": {
+    "aarch64": "ghcr.io/home-assistant/aarch64-base:3.19"
+    },
   "startup": "services",
   "boot": "auto",
   "init": false,
